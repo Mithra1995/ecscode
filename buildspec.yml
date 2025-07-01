@@ -13,7 +13,7 @@ phases:
      # - DOCKER_USERNAME=$(aws secretsmanager get-secret-value --secret-id docker-hub-credentials1 --query SecretString --output text | jq -r .DOCKER_USERNAME)
       #- DOCKER_PASSWORD=$(aws secretsmanager get-secret-value --secret-id docker-hub-credentials1 --query SecretString --output text | jq -r .DOCKER_PASSWORD)
       - DOCKER_USERNAME="mithrabalu"
-      - DOCKER_PASSWORD="your_actual_docker_password_here"
+      - DOCKER_PASSWORD="!Mithra@1995"
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
   build:

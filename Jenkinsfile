@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'mithrabalu/ecspipeline'
+        DOCKER_IMAGE = 'mithrabalu/india'
         DOCKER_TAG = 'latest'
     }
 

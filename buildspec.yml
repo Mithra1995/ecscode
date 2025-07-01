@@ -12,7 +12,7 @@ phases:
       - echo Logging in to Docker Hub...
      # - DOCKER_USERNAME=$(aws secretsmanager get-secret-value --secret-id docker-hub-credentials1 --query SecretString --output text | jq -r .DOCKER_USERNAME)
       #- DOCKER_PASSWORD=$(aws secretsmanager get-secret-value --secret-id docker-hub-credentials1 --query SecretString --output text | jq -r .DOCKER_PASSWORD)
-      - DOCKER_USERNAME="rajcosivadevops"
+      - DOCKER_USERNAME="mithrabalu"
       - DOCKER_PASSWORD="your_actual_docker_password_here"
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
@@ -20,12 +20,12 @@ phases:
     commands:
       - echo Building the Docker image...
       - docker build -t cicdncplimage .
-      - docker tag cicdncplimage:latest rajcosivadevops/cicdncplimage:latest
+      - docker tag cicdncplimage:latest mithrabalu/ecspipeline:latest
 
   post_build:
     commands:
       - echo Pushing Docker image to Docker Hub...
-      - docker push rajcosivadevops/cicdncplimage:latest
+      - docker push mithrabalu/ecspipeline:latest
       - echo Writing imagedefinitions.json...
       - ls -l
       - printf '[{"name":"sprinrajco","imageUri":"rajcosivadevops/cicdncplimage:latest"}]' > imagedefinitions.json

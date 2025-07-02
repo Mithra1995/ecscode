@@ -28,7 +28,7 @@ phases:
       - docker push mithrabalu/india:latest
       - echo Writing imagedefinitions.json...
       - ls -l
-      - printf '[{"name":"sprinrajco","imageUri":"rajcosivadevops/cicdncplimage:latest"}]' > imagedefinitions.json
+      - printf '[{"name":"mycontainer","imageUri":"mithrabalu/india:latest"}]' > imagedefinitions.json
       - echo Writing appspec.yml...
       
 

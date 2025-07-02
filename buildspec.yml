@@ -10,8 +10,6 @@ phases:
       - echo Building the JAR file...
       - mvn clean install
       - echo Logging in to Docker Hub...
-      # - DOCKER_USERNAME=$(aws secretsmanager get-secret-value --secret-id docker-hub-credentials1 --query SecretString --output text | jq -r .DOCKER_USERNAME)
-      # - DOCKER_PASSWORD=$(aws secretsmanager get-secret-value --secret-id docker-hub-credentials1 --query SecretString --output text | jq -r .DOCKER_PASSWORD)
       - DOCKER_USERNAME="mithrabalu"
       - DOCKER_PASSWORD="!Mithra@1995"
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -27,7 +25,6 @@ phases:
       - echo Pushing Docker image to Docker Hub...
       - docker push mithrabalu/india:latest
       - echo Writing imagedefinitions.json...
-      - ls -l
       - printf '[{"name":"mycontainer","imageUri":"mithrabalu/india:latest"}]' > imagedefinitions.json
       - echo Writing appspec.yml...
       - echo 'version: 1' > appspec.yml
@@ -44,4 +41,3 @@ artifacts:
   files:
     - imagedefinitions.json
     - appspec.yml
-    # - target/demo-1.0.0.jar

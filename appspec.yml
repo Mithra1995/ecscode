@@ -1,9 +1,11 @@
-version: 1
+version: 0.0
 Resources:
-  - TargetService:
+  - myECSService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "ecsTD:3"
+        ClusterName: ecspipelinecluster  # Your ECS cluster name
+        ServiceName: ecsservice1   # Your ECS service name
+        TaskDefinition: ecsTD:3  # ECS task definition with the revision number
         LoadBalancerInfo:
-          ContainerName: "mycontainer"
-          ContainerPort: 80
+          ContainerName: mycontainer  # Container name as defined in the task definition
+          ContainerPort: 80  # The container port exposed

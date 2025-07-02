@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: sampleTD:5
+        TaskDefinition: imagedefinitions.json
         LoadBalancerInfo:
           ContainerName: mycontainer
           ContainerPort: 80

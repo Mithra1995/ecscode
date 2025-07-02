@@ -30,6 +30,15 @@ phases:
       - ls -l
       - printf '[{"name":"mycontainer","imageUri":"mithrabalu/india:latest"}]' > imagedefinitions.json
       - echo Writing appspec.yml...
+      - echo 'version: 1' > appspec.yml
+      - echo 'Resources:' >> appspec.yml
+      - echo '  - TargetService:' >> appspec.yml
+      - echo '      Type: AWS::ECS::Service' >> appspec.yml
+      - echo '      Properties:' >> appspec.yml
+      - echo '        TaskDefinition: ecsTD:3' >> appspec.yml
+      - echo '        LoadBalancerInfo:' >> appspec.yml
+      - echo '          ContainerName: mycontainer' >> appspec.yml
+      - echo '          ContainerPort: 80' >> appspec.yml
       
 
 artifacts:

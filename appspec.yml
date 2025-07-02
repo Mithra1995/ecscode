@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "sampleTD:8"  # Or use CodePipeline variable below
+        TaskDefinition: "PLACEHOLDER"
         LoadBalancerInfo:
           ContainerName: "mycontainer"
           ContainerPort: 80

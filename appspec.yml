@@ -1,9 +1,11 @@
-version: 1
+version: 0.0
 Resources:
-  - TargetService:
+  - myECSService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-1:382828593676:task-definition/sampleTD:12"
+        ClusterName: First  # Your ECS cluster name
+        ServiceName: second  # Your ECS service name
+        TaskDefinition: imagedefinitions:1  # ECS task definition with the revision number
         LoadBalancerInfo:
-          ContainerName: "mycontainer"
-          ContainerPort: 80
+          ContainerName: sprinrajco  # Container name as defined in the task definition
+          ContainerPort: 80  # The container port exposed
